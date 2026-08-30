@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --color-principal: #a67c32;
+    --color-principal-dark: #8c6829;
+    --color-fondo: #faf8f3;
+    --color-blanco: #ffffff;
+    --color-texto: #333333;
+    --color-texto-suave: #666666;
+    --color-oscuro: #1a1a1a;
+
+    --sombra-suave: 0 10px 25px rgba(0,0,0,.08);
+    --sombra-media: 0 15px 35px rgba(0,0,0,.12);
+
+    --radio: 20px;
+}
+
 /* ===================== RESET ===================== */
 
 *{
@@ -14,14 +29,18 @@ html{
 
 body{
     font-family:'Josefin Sans',sans-serif;
-    background:#faf8f3;
-    color:#333;
+    background:var(--color-fondo);
+    color:var(--color-texto);
     padding-top:90px;
+    line-height:1.6;
 }
+
 
 /* ===================== TIPOGRAFÍA ===================== */
 
-h1,h2,h3,
+h1,
+h2,
+h3,
 .logo,
 .menu a,
 .btn{
@@ -29,19 +48,28 @@ h1,h2,h3,
     letter-spacing:1.5px;
 }
 
+h2{
+    font-weight:400;
+}
+
+p{
+    font-weight:300;
+}
+
+
 /* ===================== HEADER ===================== */
 
 header{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
+    height:90px;
     z-index:1000;
 
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background:rgba(255,255,255,.97);
 
-    box-shadow: 0 5px 20px rgba(0,0,0,.12);
+    box-shadow:0 5px 20px rgba(0,0,0,.10);
 }
 
 .navbar{
@@ -49,399 +77,685 @@ header{
     height:90px;
     margin:auto;
     padding:0 30px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-/* LOGO */
+
+/* ===================== LOGO ===================== */
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
 .logo img{
     width:130px;
     height:auto;
     object-fit:contain;
     display:block;
+
     filter:drop-shadow(0 2px 6px rgba(0,0,0,.15));
 }
 
-/* MENU */
-.menu{
-    list-style:none;
-    display:flex;
-    gap:35px;
-}
-
-.menu a{
-    text-decoration:none;
-    color:#333;
-    font-size:15px;
-    transition:.3s;
-    position:relative;
-}
-
-.menu a:hover{
-    color:#a67c32;
-}
-
-.menu a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-5px;
-    width:0%;
-    height:2px;
-    background:#a67c32;
-    transition:.3s;
-}
-
-.menu a:hover::after{
-    width:100%;
-}
-
-/* MENU MOBILE */
-.menu-toggle{
-    display:none;
-    font-size:30px;
-    cursor:pointer;
-}
-
-/* ===================== HERO ===================== */
-
-.hero{
-    min-height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url("../img/fondo.jpg");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.hero-content{
-    color:white;
-    padding:20px;
-}
-
-/* BADGES */
-.hero-badges{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    margin-bottom:20px;
-    flex-wrap:wrap;
-}
-
-.hero-badges span{
-    background:rgba(255,255,255,.15);
-    padding:8px 15px;
-    border-radius:20px;
-    color:white;
-    font-size:14px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-}
-
-/* TEXTOS */
-.hero h1{
-    font-size:70px;
-    font-weight:500;
-    letter-spacing:2px;
-    text-shadow:0 5px 20px rgba(0,0,0,.4);
-}
-
-.hero p{
-    font-size:22px;
-    margin:25px 0 35px;
-}
-
-/* ===================== BOTONES (IGUALES) ===================== */
-.btn{
-    background:#a67c32;
-    color:white;
-    padding:15px 35px;
-    border-radius:40px;
-    display:inline-block;
-    transition:.3s;
-    text-decoration:none;
-}
-
-.btn:hover{
-    filter:brightness(0.9);
-}
-
-.btn-secondary{
-    background:transparent;
-    color:white;
-    padding:15px 35px;
-    border-radius:40px;
-    display:inline-block;
-    border:2px solid white;
-    transition:.3s;
-    text-decoration:none;
-}
-
-.btn-secondary:hover{
-    background:white;
-    color:#333;
-}
-
-
-
-/* ===================== SECCIONES ===================== */
-
-.section{
-    padding:90px 8%;
-}
-
-.section-title{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:50px;
-    font-weight:400;
-}
-
-.section-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-    gap:25px;
-}
-
-.section-card{
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 15px 30px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.section-card:hover{
-    transform:translateY(-5px);
-}
-
-/* ===================== SOBRE ===================== */
-
-.sobre{
-    background:white;
-    text-align:center;
-    padding:90px 8%;
-}
-
-.sobre-grid{
-    margin-top:30px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.sobre-grid div{
-    background:white;
-    padding:15px 20px;
-    border-radius:15px;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
-
-/* ===================== IMAGEN ===================== */
-
-.image-section img{
-    width:100%;
-    height:500px;
-    object-fit:cover;
-    border-radius:20px;
-    margin:60px auto;
-    display:block;
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
-}
-
-/* ===================== HABITACIONES ===================== */
-
-.room-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-    gap:30px;
-}
-
-.room-card{
-    background:white;
-    overflow:hidden;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-    transition:.3s;
-}
-
-.room-card:hover{
-    transform:translateY(-5px);
-}
-
-.room-card img{
-    width:100%;
-    height:240px;
-    object-fit:cover;
-}
-
-.room-info{
-    padding:25px;
-}
-
-.room-info h3{
-    margin-bottom:15px;
-}
-
-.room-info span{
-    color:#a67c32;
-    font-size:20px;
-}
-
-.room-info button{
-    margin-top:20px;
-    border:0;
-    background:#333;
-    color:white;
-    padding:12px 30px;
-    border-radius:30px;
-    cursor:pointer;
-}
-
-/* ===================== GALERÍA ===================== */
-
-.gallery-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-}
-
-.gallery-item img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
-    border-radius:20px;
-    transition:.3s;
-}
-
-.gallery-item img:hover{
-    transform:scale(1.03);
-}
-
-/* ===================== SERVICIOS ===================== */
-
-.services-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-}
-
-.service-card{
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 15px 30px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.service-card:hover{
-    transform:translateY(-5px);
-}
-
-/* ===================== CONTACTO ===================== */
-
-.contact-box{
-    max-width:500px;
-    margin:auto;
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
-
-/* ===================== FOOTER ===================== */
-
-.footer{
-    background:#1a1a1a;
-    color:white;
-    padding:60px 10%;
-}
-
-.footer-container{
-    display:flex;
-    justify-content:space-between;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.footer-box{
-    flex:1;
-    min-width:220px;
-}
-
-/* ===================== MOBILE ===================== */
-
-@media(max-width:768px){
-
-.navbar{
-    padding:0 20px;
-}
-
-.logo img{
-    width:110px;
-}
-
-.menu-toggle{
-    display:block;
-}
 
 /* ===================== MENU ===================== */
 
 .menu{
     list-style:none;
-    display:flex;
-    gap:35px;
 
-    transition: all .3s ease;
+    display:flex;
+    align-items:center;
+    gap:35px;
 }
 
 .menu a{
-    text-decoration:none;
-    color:#333;
-    font-size:15px;
-    transition:.3s;
     position:relative;
+
+    text-decoration:none;
+    color:var(--color-texto);
+
+    font-size:15px;
     font-weight:500;
+
+    transition:.3s ease;
 }
 
-/* hover elegante */
 .menu a:hover{
-    color:#a67c32;
+    color:var(--color-principal);
 }
 
 .menu a::after{
     content:"";
+
     position:absolute;
     left:0;
-    bottom:-5px;
-    width:0%;
+    bottom:-6px;
+
+    width:0;
     height:2px;
-    background:#a67c32;
-    transition:.3s;
+
+    background:var(--color-principal);
+
+    transition:.3s ease;
 }
 
 .menu a:hover::after{
     width:100%;
 }
 
-/* ===================== MENU MOBILE ===================== */
+
+/* ===================== MENU HAMBURGUESA ===================== */
 
 .menu-toggle{
     display:none;
+
     font-size:30px;
     cursor:pointer;
     user-select:none;
+
+    color:var(--color-texto);
 }
 
-/* versión mobile */
+
+/* ===================== HERO ===================== */
+
+.hero{
+    min-height:calc(100vh - 90px);
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.48),
+            rgba(0,0,0,.48)
+        ),
+        url("../img/frente\ hotel.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+}
+
+.hero-content{
+    max-width:900px;
+    padding:30px;
+
+    color:white;
+}
+
+
+/* ===================== BADGES ===================== */
+
+.hero-badges{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:25px;
+}
+
+.hero-badges span{
+    display:inline-block;
+
+    padding:9px 16px;
+
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:30px;
+
+    background:rgba(0,0,0,.25);
+
+    color:white;
+
+    font-size:14px;
+    font-weight:400;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+
+/* ===================== HERO TEXTOS ===================== */
+
+.hero h1{
+    font-size:72px;
+    font-weight:500;
+    line-height:1.1;
+
+    letter-spacing:3px;
+
+    text-shadow:0 5px 20px rgba(0,0,0,.45);
+
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    font-weight:300;
+
+    margin:0 auto 35px;
+
+    max-width:700px;
+
+    text-shadow:0 2px 10px rgba(0,0,0,.35);
+}
+
+
+/* ===================== BOTONES ===================== */
+
+.btn,
+.btn-secondary{
+    display:inline-block;
+
+    padding:14px 32px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    font-family:'Josefin Sans',sans-serif;
+
+    font-size:15px;
+    font-weight:500;
+
+    letter-spacing:1.2px;
+
+    transition:.3s ease;
+
+    margin:5px;
+}
+
+
+/* BOTÓN PRINCIPAL */
+
+.btn{
+    background:var(--color-principal);
+    color:white;
+
+    border:2px solid var(--color-principal);
+}
+
+.btn:hover{
+    background:var(--color-principal-dark);
+    border-color:var(--color-principal-dark);
+
+    transform:translateY(-2px);
+}
+
+
+/* BOTÓN SECUNDARIO */
+
+.btn-secondary{
+    background:transparent;
+    color:white;
+
+    border:2px solid white;
+}
+
+.btn-secondary:hover{
+    background:white;
+    color:var(--color-texto);
+
+    transform:translateY(-2px);
+}
+
+
+/* ===================== SOBRE ===================== */
+
+.sobre{
+    background:var(--color-blanco);
+
+    text-align:center;
+
+    padding:100px 8%;
+}
+
+.sobre h2{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.sobre > p{
+    max-width:750px;
+    margin:0 auto;
+
+    color:var(--color-texto-suave);
+
+    font-size:18px;
+}
+
+
+/* ===================== DESTACADOS ===================== */
+
+.sobre-grid{
+    margin-top:45px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.sobre-grid div{
+    background:var(--color-fondo);
+
+    padding:25px 20px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombra-suave);
+
+    font-size:16px;
+
+    transition:.3s ease;
+}
+
+.sobre-grid div:hover{
+    transform:translateY(-5px);
+
+    box-shadow:var(--sombra-media);
+}
+
+
+/* ===================== SECCIONES GENERALES ===================== */
+
+.section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+
+    font-size:40px;
+    font-weight:400;
+
+    margin-bottom:55px;
+
+    position:relative;
+}
+
+
+/* Línea decorativa debajo de títulos */
+
+.section-title::after{
+    content:"";
+
+    display:block;
+
+    width:55px;
+    height:2px;
+
+    background:var(--color-principal);
+
+    margin:18px auto 0;
+}
+
+
+/* ===================== TARJETAS DESTACADAS ===================== */
+
+.section-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    max-width:1100px;
+
+    margin:auto;
+}
+
+.section-card{
+    background:white;
+
+    padding:35px 30px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombra-suave);
+
+    text-align:center;
+
+    transition:.3s ease;
+
+    border:1px solid rgba(0,0,0,.04);
+}
+
+.section-card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:var(--sombra-media);
+}
+
+.section-card h3{
+    font-size:21px;
+
+    font-weight:500;
+
+    margin-bottom:12px;
+
+    color:var(--color-texto);
+}
+
+.section-card p{
+    color:var(--color-texto-suave);
+
+    font-size:15px;
+}
+
+
+/* ===================== IMAGEN HOTEL ===================== */
+
+.image-section{
+    padding:0 8% 100px;
+}
+
+.image-section img{
+    width:100%;
+    max-width:1200px;
+
+    height:500px;
+
+    object-fit:cover;
+
+    border-radius:var(--radio);
+
+    display:block;
+
+    margin:0 auto;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.16);
+}
+
+
+/* ===================== HABITACIONES ===================== */
+
+.room-container{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(270px,1fr));
+
+    gap:30px;
+}
+
+.room-card{
+    background:white;
+
+    overflow:hidden;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombra-media);
+
+    transition:.3s ease;
+}
+
+.room-card:hover{
+    transform:translateY(-6px);
+}
+
+.room-card img{
+    width:100%;
+    height:240px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.room-info{
+    padding:28px;
+}
+
+.room-info h3{
+    margin-bottom:12px;
+
+    font-size:21px;
+    font-weight:500;
+}
+
+.room-info span{
+    color:var(--color-principal);
+
+    font-size:20px;
+}
+
+.room-info button{
+    margin-top:20px;
+
+    border:0;
+
+    background:var(--color-oscuro);
+    color:white;
+
+    padding:12px 30px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-family:'Josefin Sans',sans-serif;
+
+    transition:.3s ease;
+}
+
+.room-info button:hover{
+    background:var(--color-principal);
+}
+
+
+/* ===================== GALERÍA ===================== */
+
+.gallery-container{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombra-suave);
+}
+
+.gallery-item img{
+    width:100%;
+    height:280px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.4s ease;
+}
+
+.gallery-item img:hover{
+    transform:scale(1.05);
+}
+
+
+/* ===================== SERVICIOS ===================== */
+
+.services-container{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+}
+
+.service-card{
+    background:white;
+
+    padding:35px;
+
+    border-radius:var(--radio);
+
+    text-align:center;
+
+    box-shadow:var(--sombra-suave);
+
+    transition:.3s ease;
+
+    border:1px solid rgba(0,0,0,.04);
+}
+
+.service-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:var(--sombra-media);
+}
+
+
+/* ===================== CONTACTO ===================== */
+
+.contact-box{
+    width:100%;
+    max-width:500px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:var(--radio);
+
+    box-shadow:var(--sombra-media);
+}
+
+
+/* ===================== FOOTER ===================== */
+
+.footer{
+    background:var(--color-oscuro);
+
+    color:white;
+
+    padding:65px 10%;
+}
+
+.footer-container{
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:50px;
+
+    flex-wrap:wrap;
+}
+
+.footer-box{
+    flex:1;
+
+    min-width:220px;
+}
+
+.footer-box h3{
+    margin-bottom:15px;
+
+    font-size:20px;
+    font-weight:500;
+}
+
+.footer-box p{
+    color:#cccccc;
+
+    font-size:14px;
+
+    margin-bottom:7px;
+}
+
+
+/* ===================== ANIMACIÓN ===================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media(max-width:900px){
+
+    .menu{
+        gap:20px;
+    }
+
+    .menu a{
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:58px;
+    }
+
+    .section-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .sobre-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+
 @media(max-width:768px){
+
+    body{
+        padding-top:80px;
+    }
+
+    header{
+        height:80px;
+    }
+
+    .navbar{
+        height:80px;
+
+        padding:0 20px;
+    }
+
+    .logo img{
+        width:110px;
+    }
+
+
+    /* MENU HAMBURGUESA */
 
     .menu-toggle{
         display:block;
@@ -449,21 +763,27 @@ header{
 
     .menu{
         display:none;
+
         position:absolute;
-        top:90px;
+
+        top:80px;
         right:20px;
 
-        background:white;
-        flex-direction:column;
-        gap:15px;
+        width:220px;
 
         padding:25px;
+
+        background:white;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
         border-radius:15px;
 
         box-shadow:0 10px 25px rgba(0,0,0,.15);
-
-        min-width:200px;
-        z-index:1000;
 
         animation:fadeIn .25s ease;
     }
@@ -475,23 +795,881 @@ header{
     .menu a{
         font-size:16px;
     }
-}
 
-.hero h1{
-    font-size:45px;
-}
 
-}
+    /* HERO */
 
-/* ===================== ANIMACIÓN ===================== */
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(-10px);
+    .hero{
+        min-height:calc(100vh - 80px);
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    .hero-content{
+        padding:25px 20px;
+    }
+
+    .hero-badges{
+        gap:8px;
+    }
+
+    .hero-badges span{
+        font-size:12px;
+
+        padding:8px 12px;
+    }
+
+    .hero h1{
+        font-size:45px;
+
+        letter-spacing:2px;
+    }
+
+    .hero p{
+        font-size:18px;
+
+        margin-bottom:30px;
+    }
+
+    .btn,
+    .btn-secondary{
+        width:100%;
+
+        max-width:280px;
+
+        padding:13px 25px;
+
+        margin:5px auto;
+    }
+
+
+    /* SECCIONES */
+
+    .sobre,
+    .section{
+        padding:70px 6%;
+    }
+
+    .sobre h2,
+    .section-title{
+        font-size:32px;
+    }
+
+    .sobre > p{
+        font-size:16px;
+    }
+
+
+    /* GRID */
+
+    .section-grid,
+    .sobre-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    /* IMAGEN */
+
+    .image-section{
+        padding:0 6% 70px;
+    }
+
+    .image-section img{
+        height:300px;
+
+        border-radius:15px;
+    }
+
+
+    /* FOOTER */
+
+    .footer{
+        padding:50px 8%;
+    }
+
+    .footer-container{
+        flex-direction:column;
+
+        gap:30px;
     }
 }
+
+
+@media(max-width:480px){
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-badges span{
+        font-size:11px;
+    }
+
+    .sobre h2,
+    .section-title{
+        font-size:29px;
+    }
+
+    .image-section img{
+        height:240px;
+    }
+}
+
+/* =====================================================
+PÁGINA HABITACIONES
+   ===================================================== */
+
+/* ===================== BANNER ===================== */
+
+.page-banner {
+    height: 300px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.40),
+            rgba(0, 0, 0, 0.40)
+        ),
+        url("../img/img-pileta-1.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.page-banner h2 {
+    color: #fff;
+
+    font-size: 45px;
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* ===================== SECCIÓN HABITACIONES ===================== */
+
+.rooms {
+    padding: 80px 20px;
+
+    background: #faf8f3;
+}
+
+.rooms .section-title {
+    margin-bottom: 50px;
+}
+
+
+/* ===================== CONTENEDOR ===================== */
+
+.room-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px;
+}
+
+
+/* ===================== TARJETA ===================== */
+
+.room-card {
+    background: #fff;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+
+/* ===================== IMAGEN ===================== */
+
+.room-card img {
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.room-card:hover img {
+    transform: scale(1.03);
+}
+
+
+/* ===================== INFORMACIÓN ===================== */
+
+.room-info {
+    padding: 25px 28px 30px;
+}
+
+.room-info h3 {
+    color: #a67c32;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+}
+
+.room-info p {
+    color: #666;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+}
+
+.room-info span {
+    display: block;
+
+    color: #333;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+
+/* ===================== BOTÓN RESERVAR ===================== */
+
+.room-info button {
+    display: inline-block;
+
+    padding: 12px 28px;
+
+    background: #a67c32;
+
+    color: #fff;
+
+    border: 2px solid #a67c32;
+
+    border-radius: 4px;
+
+    font-family: 'Josefin Sans', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.room-info button:hover {
+    background: #8c6829;
+
+    border-color: #8c6829;
+
+    transform: translateY(-2px);
+}
+
+
+/* ===================== RESPONSIVE TABLET ===================== */
+
+@media (max-width: 900px) {
+
+    .room-container {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 25px;
+    }
+
+    .room-card img {
+        height: 240px;
+    }
+
+}
+
+
+/* ===================== RESPONSIVE CELULAR ===================== */
+
+@media (max-width: 700px) {
+
+    .page-banner {
+        height: 220px;
+    }
+
+    .page-banner h2 {
+        font-size: 34px;
+
+        letter-spacing: 2px;
+    }
+
+    .rooms {
+        padding: 60px 20px;
+    }
+
+    .room-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .room-card img {
+        height: 230px;
+    }
+
+    .room-info {
+        padding: 22px;
+    }
+
+    .room-info h3 {
+        font-size: 22px;
+    }
+
+}
+
+
+/* =====================================================
+PÁGINA SERVICIOS
+   ===================================================== */
+
+/* ===================== SECCIÓN ===================== */
+
+.services {
+    background: #fff;
+
+    padding: 80px 20px;
+}
+
+.services .section-title {
+    margin-bottom: 50px;
+}
+
+
+/* ===================== GRILLA ===================== */
+
+.section-grid {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+
+/* ===================== TARJETAS ===================== */
+
+.section-card {
+    background: #faf8f3;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    border-radius: 6px;
+
+    border: 1px solid #eee;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.section-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+    border-color: #a67c32;
+}
+
+
+/* ===================== TÍTULO TARJETA ===================== */
+
+.section-card h3 {
+    color: #a67c32;
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+
+/* ===================== TEXTO ===================== */
+
+.section-card p {
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* ===================== RESPONSIVE TABLET ===================== */
+
+@media (max-width: 900px) {
+
+    .section-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px;
+    }
+
+    .section-card {
+        padding: 30px 25px;
+    }
+
+}
+
+
+/* ===================== RESPONSIVE CELULAR ===================== */
+
+@media (max-width: 700px) {
+
+    .services {
+        padding: 60px 20px;
+    }
+
+    .section-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .section-card {
+        padding: 30px 20px;
+    }
+
+    .section-card h3 {
+        font-size: 21px;
+    }
+
+    .section-card p {
+        font-size: 15px;
+    }
+
+}
+
+
+/* =====================================================
+PÁGINA GALERÍA
+   ===================================================== */
+
+/* ===================== SECCIÓN GALERÍA ===================== */
+
+.gallery {
+    background: #faf8f3;
+
+    padding: 80px 20px;
+}
+
+
+/* ===================== CONTENEDOR ===================== */
+
+.gallery-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ===================== IMÁGENES ===================== */
+
+.gallery-item {
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    background: #fff;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+    cursor: pointer;
+}
+
+
+/* ===================== IMAGEN ===================== */
+
+.gallery-item img {
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* ===================== EFECTO HOVER ===================== */
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+
+/* ===================== TABLET ===================== */
+
+@media (max-width: 900px) {
+
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+    .gallery-item img {
+        height: 230px;
+    }
+
+}
+
+
+/* ===================== CELULAR ===================== */
+
+@media (max-width: 700px) {
+
+    .gallery {
+        padding: 60px 20px;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .gallery-item img {
+        height: 250px;
+    }
+
+}
+/* =====================================================
+IMAGEN AMPLIADA DE GALERÍA
+   ===================================================== */
+
+.image-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    z-index: 2000;
+
+    cursor: pointer;
+}
+
+
+/* ===================== IMAGEN GRANDE ===================== */
+
+.image-overlay img {
+    max-width: 90%;
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 5px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.40);
+
+    cursor: default;
+}
+
+
+/* ===================== BOTÓN CERRAR ===================== */
+
+.close-image {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #a67c32;
+
+    color: #fff;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+}
+
+.close-image:hover {
+    background: #8c6829;
+
+    transform: scale(1.08);
+}
+
+
+/* ===================== CELULAR ===================== */
+
+@media (max-width: 700px) {
+
+    .image-overlay {
+        padding: 20px;
+    }
+
+    .image-overlay img {
+        max-width: 95%;
+
+        max-height: 80vh;
+    }
+
+    .close-image {
+        top: 15px;
+
+        right: 15px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+}
+
+
+/* =====================================================
+PÁGINA CONTACTO
+   ===================================================== */
+
+/* ===================== CONTENEDOR PRINCIPAL ===================== */
+
+.contact {
+    background: #faf8f3;
+
+    padding: 90px 20px;
+}
+
+
+/* ===================== CONTENEDOR ===================== */
+
+.contact-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ===================== TÍTULO ===================== */
+
+.contact-container h2 {
+    font-size: 40px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    color: #333;
+
+    margin-bottom: 20px;
+}
+
+
+/* ===================== TEXTO INTRODUCTORIO ===================== */
+
+.contact-container > p {
+    max-width: 750px;
+
+    margin: 0 auto 55px;
+
+    color: #666;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* ===================== GRID ===================== */
+
+.contact-grid {
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ===================== TARJETAS ===================== */
+
+.contact-box {
+    background: #fff;
+
+    padding: 35px 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.contact-box:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ===================== TÍTULO TARJETA ===================== */
+
+.contact-box h3 {
+    color: #a67c32;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+
+/* ===================== TEXTO TARJETA ===================== */
+
+.contact-box p {
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* ===================== TABLET ===================== */
+
+@media (max-width: 900px) {
+
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ===================== CELULAR ===================== */
+
+@media (max-width: 700px) {
+
+    .contact {
+        padding: 65px 20px;
+    }
+
+    .contact-container h2 {
+        font-size: 30px;
+
+        letter-spacing: 1px;
+    }
+
+    .contact-container > p {
+        font-size: 15px;
+
+        margin-bottom: 40px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .contact-box {
+        padding: 30px 20px;
+    }
+
+    .contact-box h3 {
+        font-size: 20px;
+    }
+
+    .contact-box p {
+        font-size: 15px;
+    }
+
+}
+
