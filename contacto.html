@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,15 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contacto | Hotel Álamo</title>
+    <title>Contacto - Hotel Álamo</title>
+
+    <meta name="description"
+        content="Contactá al Hotel Álamo en Villa Carlos Paz. Consultá disponibilidad y realizá tu reserva.">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
+    <!-- ==================== HEADER ==================== -->
+
+    <header class="header">
 
         <nav class="navbar">
 
@@ -21,15 +26,31 @@
                 <img src="img/logo hotel .png" alt="Hotel Álamo">
             </a>
 
-            <div class="menu-toggle" id="menu-toggle">☰</div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                ☰
+            </button>
 
             <ul class="menu" id="menu">
 
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="habitaciones.html">Habitaciones</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="habitaciones.html">Habitaciones</a>
+                </li>
+
+                <li>
+                    <a href="servicios.html">Servicios</a>
+                </li>
+
+                <li>
+                    <a href="galeria.html">Galería</a>
+                </li>
+
+                <li>
+                    <a href="contacto.html" class="activo">Contacto</a>
+                </li>
 
             </ul>
 
@@ -37,36 +58,341 @@
 
     </header>
 
-    <!-- CONTACTO -->
-    <main class="contact">
 
-        <section class="contact-container">
+    <!-- ==================== CONTENIDO ==================== -->
 
-            <h2>Información de contacto</h2>
+    <main class="contacto">
 
-            <p>
-                Si querés hacer una reserva, consultar disponibilidad o recibir más información,
-                podés comunicarte con nosotros por cualquiera de estos medios.
-            </p>
+        <!-- BANNER -->
 
-            <div class="contact-grid">
+        <section class="contacto-banner">
 
-                <div class="contact-box">
-                    <h3>📍 Ubicación</h3>
-                    <p>Villa Carlos Paz, Córdoba, Argentina</p>
+            <div class="contacto-banner-contenido">
+
+                <h1>Contacto</h1>
+
+                <p>
+                    Consultá disponibilidad y planificá tu estadía
+                    en Villa Carlos Paz.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== FORMULARIO ==================== -->
+
+        <section class="consulta">
+
+            <div class="consulta-contenedor">
+
+                <div class="consulta-titulo">
+
+                    <h2>Consultá disponibilidad</h2>
+
+                    <p>
+                        Completá los datos de tu estadía y enviá tu consulta
+                        directamente por WhatsApp.
+                    </p>
+
                 </div>
 
-                <div class="contact-box">
-                    <h3>📞 Teléfono</h3>
-                    <p>+54 351 000000</p>
-                </div>
 
-                <div class="contact-box">
-                    <h3>✉️ Email</h3>
-                    <p>info@hotelalamo.com</p>
-                </div>
+                <form id="formulario-consulta" class="formulario-consulta">
 
-            
+                    <!-- NOMBRE -->
+
+                    <div class="campo campo-completo">
+
+                        <label for="nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Tu nombre"
+                            required>
+
+                    </div>
+
+
+                    <!-- FECHA INGRESO -->
+
+                    <div class="campo">
+
+                        <label for="ingreso">
+                            Fecha de ingreso
+                        </label>
+
+                        <input
+                            type="date"
+                            id="ingreso"
+                            name="ingreso"
+                            required>
+
+                    </div>
+
+
+                    <!-- FECHA SALIDA -->
+
+                    <div class="campo">
+
+                        <label for="salida">
+                            Fecha de salida
+                        </label>
+
+                        <input
+                            type="date"
+                            id="salida"
+                            name="salida"
+                            required>
+
+                    </div>
+
+
+                    <!-- PERSONAS -->
+
+                    <div class="campo">
+
+                        <label for="personas">
+                            Cantidad de personas
+                        </label>
+
+                        <select
+                            id="personas"
+                            name="personas"
+                            required>
+
+                            <option value="">
+                                Seleccioná
+                            </option>
+
+                            <option value="1">
+                                1 persona
+                            </option>
+
+                            <option value="2">
+                                2 personas
+                            </option>
+
+                            <option value="3">
+                                3 personas
+                            </option>
+
+                            <option value="4">
+                                4 personas
+                            </option>
+
+                            <option value="5">
+                                5 personas
+                            </option>
+
+                            <option value="6">
+                                6 personas
+                            </option>
+
+                            <option value="7">
+                                7 personas
+                            </option>
+
+                            <option value="8">
+                                8 personas
+                            </option>
+
+                            <option value="9">
+                                9 personas
+                            </option>
+
+                            <option value="10">
+                                10 personas
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- HABITACIONES -->
+
+                    <div class="campo">
+
+                        <label for="habitaciones">
+                            Cantidad de habitaciones
+                        </label>
+
+                        <select
+                            id="habitaciones"
+                            name="habitaciones"
+                            required>
+
+                            <option value="">
+                                Seleccioná
+                            </option>
+
+                            <option value="1">
+                                1 habitación
+                            </option>
+
+                            <option value="2">
+                                2 habitaciones
+                            </option>
+
+                            <option value="3">
+                                3 habitaciones
+                            </option>
+
+                            <option value="4">
+                                4 habitaciones
+                            </option>
+
+                            <option value="5">
+                                5 habitaciones
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MENSAJE -->
+
+                    <div class="campo campo-completo">
+
+                        <label for="mensaje">
+                            Consulta adicional
+                        </label>
+
+                        <textarea
+                            id="mensaje"
+                            name="mensaje"
+                            rows="5"
+                            placeholder="Escribí aquí cualquier consulta adicional..."></textarea>
+
+                    </div>
+
+
+                    <!-- BOTÓN -->
+
+                    <div class="formulario-boton">
+
+                        <button type="submit">
+                            Consultar disponibilidad por WhatsApp
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== CONTACTO DIRECTO ==================== -->
+
+        <section class="contacto-contenido">
+
+            <div class="contacto-texto">
+
+                <h2>También podés contactarnos directamente</h2>
+
+                <p>
+                    Si preferís, podés comunicarte con nosotros
+                    a través de cualquiera de estos medios.
+                </p>
+
+            </div>
+
+
+            <div class="contacto-opciones">
+
+
+                <!-- WHATSAPP -->
+
+                <a
+                    href="https://wa.me/5493541637790"
+                    class="contacto-card"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <div class="contacto-icono">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <h3>WhatsApp</h3>
+
+                        <p>
+                            +54 9 3541 637790
+                        </p>
+
+                        <span>
+                            Consultanos por WhatsApp
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- EMAIL -->
+
+                <a
+                    href="mailto:reservas@alamohotel.ar"
+                    class="contacto-card">
+
+                    <div class="contacto-icono">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <h3>Email</h3>
+
+                        <p>
+                            reservas@alamohotel.ar
+                        </p>
+
+                        <span>
+                            Enviarnos un correo
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    href="https://www.instagram.com/alamo.hotel/"
+                    class="contacto-card"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <div class="contacto-icono">
+                        ◎
+                    </div>
+
+                    <div>
+
+                        <h3>Instagram</h3>
+
+                        <p>
+                            @alamo.hotel
+                        </p>
+
+                        <span>
+                            Seguinos en Instagram
+                        </span>
+
+                    </div>
+
+                </a>
 
             </div>
 
@@ -74,28 +400,190 @@
 
     </main>
 
-    <!-- FOOTER -->
+
+    <!-- ==================== FOOTER ==================== -->
+
     <footer class="footer">
 
-        <div class="footer-container">
+        <div class="footer-contenido">
 
-            <div class="footer-box">
+            <div class="footer-info">
+
                 <h3>Hotel Álamo</h3>
-                <p>Descanso, confort y tranquilidad en Villa Carlos Paz.</p>
+
+                <p>
+                    Villa Carlos Paz, Córdoba
+                </p>
+
             </div>
 
-            <div class="footer-box">
+
+            <div class="footer-contacto">
+
                 <h3>Contacto</h3>
-                <p>📍 Villa Carlos Paz</p>
-                <p>📞 +54 3541 637790</p>
-                <p>✉️ reservas@alamohotel.ar</p>
+
+                <a
+                    href="https://wa.me/5493541637790"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    WhatsApp
+                </a>
+
+                <a href="mailto:reservas@alamohotel.ar">
+                    reservas@alamohotel.ar
+                </a>
+
+                <a
+                    href="https://www.instagram.com/alamo.hotel/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Instagram
+                </a>
+
             </div>
+
+
+            <div class="footer-redes">
+
+                <h3>Seguinos</h3>
+
+                <div class="footer-redes-enlaces">
+
+                    <a
+                        href="https://wa.me/5493541637790"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        WhatsApp
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/alamo.hotel/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Hotel Álamo - Villa Carlos Paz
+            </p>
 
         </div>
 
     </footer>
 
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script>
+
+        const formulario = document.getElementById("formulario-consulta");
+
+        const ingreso = document.getElementById("ingreso");
+        const salida = document.getElementById("salida");
+
+
+        // No permitir fechas anteriores al día actual
+
+        const hoy = new Date().toISOString().split("T")[0];
+
+        ingreso.min = hoy;
+        salida.min = hoy;
+
+
+        // La salida debe ser posterior al ingreso
+
+        ingreso.addEventListener("change", function () {
+
+            salida.min = ingreso.value;
+
+            if (salida.value && salida.value < ingreso.value) {
+                salida.value = "";
+            }
+
+        });
+
+
+        // Enviar consulta por WhatsApp
+
+        formulario.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+
+            const nombre =
+                document.getElementById("nombre").value;
+
+            const fechaIngreso =
+                document.getElementById("ingreso").value;
+
+            const fechaSalida =
+                document.getElementById("salida").value;
+
+            const personas =
+                document.getElementById("personas").value;
+
+            const habitaciones =
+                document.getElementById("habitaciones").value;
+
+            const mensaje =
+                document.getElementById("mensaje").value;
+
+
+            // Convertir fechas a formato argentino
+
+            const ingresoFormateado =
+                fechaIngreso.split("-").reverse().join("/");
+
+            const salidaFormateada =
+                fechaSalida.split("-").reverse().join("/");
+
+
+            const texto =
+
+                "Hola Hotel Álamo, quisiera consultar disponibilidad.%0A%0A" +
+
+                "👤 Nombre: " + nombre + "%0A" +
+
+                "📅 Fecha de ingreso: " + ingresoFormateado + "%0A" +
+
+                "📅 Fecha de salida: " + salidaFormateada + "%0A" +
+
+                "👥 Personas: " + personas + "%0A" +
+
+                "🛏️ Habitaciones: " + habitaciones + "%0A%0A" +
+
+                "💬 Consulta adicional: " +
+                (mensaje || "No especificada") +
+
+                "%0A%0AMuchas gracias.";
+
+
+            const whatsapp =
+                "https://wa.me/5493541637790?text=" + texto;
+
+
+            window.open(
+                whatsapp,
+                "_blank"
+            );
+
+        });
+
+    </script>
+
+
     <script src="js/menu.js"></script>
 
 </body>
+
 </html>
+
